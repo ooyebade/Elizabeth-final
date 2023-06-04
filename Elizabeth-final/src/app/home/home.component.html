@@ -1,0 +1,88 @@
+<div class="content" role="main">
+  <div class="sc-body">
+
+    <br>
+    <h3>Grade Calculator</h3>
+    <hr width="50%">
+    <br>
+
+      <div class="sc-row sc-row-padding0-tb">
+      <div class="sc-col sc-border">Student List:</div>
+      <div class="sc-col-5 sc-border">
+
+          <div class="sc-row sc-row-padding0">
+          <div class="sc-row  sc-col sc-row-padding0">
+            <select [(ngModel)]="this.drpstudentName">
+              <option value="Adelaide Adomako">Adelaide Adomako</option>
+              <option value="Wanyi Dong">Wanyi Dong</option>
+              <option value="Shannon McDowell">Shannon McDowell</option>
+              <option value="Justin Nugyen">Justin Nugyen</option>
+              <option value="Elizabeth Oyebade">Elizabeth Oyebade</option>
+              <option value="Ryan Williams">Ryan Williams</option>
+            </select>
+          </div>
+        <div class="sc-row-padding0-tb sc-col "> {{info.studentNameErr}}</div>
+      </div>
+    </div>
+  </div>
+
+      <div class="sc-row sc-row-padding0-tb">
+      <div class="sc-col sc-border">Course Name:</div>
+      <div class="sc-col-5 sc-border ">
+          <div class="sc-row sc-row-padding0">
+          <div class="sc-row  sc-col sc-row-padding0">
+              <input type="text" [(ngModel)]="info.courseName" minlength="10" maxlength="50">
+          </div>
+          <div class="sc-col ">{{info.courseNameErr}}</div>
+          </div>
+      </div>
+      </div>
+
+      <div class="sc-row sc-row-padding0-tb">
+      <div class="sc-col sc-border">Score:</div>
+      <div class="sc-col-5 sc-border">
+
+
+          <div class="sc-row sc-row-padding0">
+          <div class="sc-row  sc-col sc-row-padding0">
+
+              <input type="number" [(ngModel)]="info.score" max="100" min="0" (keyup)="handlerKeyup($event)">
+              <div class="sc-col sc-row-padding0-tb"> {{info.scoreErr}}</div>
+          </div>
+
+          </div>
+
+      </div>
+      </div>
+
+      <div class="sc-row sc-row-padding0-tb">
+          <div class="sc-col sc-border">Grade:</div>
+          <div class="sc-col-5 sc-border">
+
+
+            <div class="sc-row sc-row-padding0">
+              <div class="sc-row  sc-col sc-row-padding0">
+
+                {{gradeInfo.grade}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      <div class="sc-row sc-row-padding0-tb">
+      <div class="sc-col sc-border"></div>
+      <div class="sc-col-5 sc-border">
+          <button class="sc-btn" (click)="onSubmit()">Submit</button>
+          <button class="sc-btn" (click)="clear()">Clear</button>
+      </div>
+      </div>
+
+      <div class="sc-row sc-row-padding0-tb" *ngIf="result">
+      <div class="sc-col sc-border"></div>
+      <div class="sc-col-5 sc-border">
+        {{result}}
+      </div>
+    </div>
+  </div>
+</div>
